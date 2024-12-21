@@ -8,15 +8,15 @@ const AWBCard = (props) => {
         return (
             <div>
                 <h1>AWB Details</h1>
-                <h2>Transport Mode: {props.selected.fields["Transport Mode"]}</h2>
-                <h2>AWB Number: {props.selected.fields["HAWB/HBL"]}</h2>
-                <h2>Departure Port: {props.selected.fields["Departure Port Name"]}</h2>
-                <h2>Destination Port: {props.selected.fields["Destination Port Name"]}</h2>
-                <h2>Booking Date: {props.selected.fields["Customer Booking (CBK)"]}</h2>
-                <h2>Picked up Date: {props.selected.fields["Pick UP from Customer (PUP)"]}</h2>
-                <h2>Depart Date: {props.selected.fields["Depart from Origin Port (DEP)"]}</h2>
-                <h2>Destination Port Arrival Date: {props.selected.fields["Arrive At Destination Port (ARR)"]}</h2>
-                {!props.selected.fields["Proof Of Delivery (POD)"] ? (<h2>Not Delivered Yet!</h2>) : (<h2>Proof of Delivery Completed Date: {props.selected.fields["Proof Of Delivery (POD)"]}</h2>)}
+                <h4>Transport Mode: {props.selected.fields["Transport Mode"]}</h4>
+                <h4>AWB Number: {props.selected.fields["HAWB/HBL"]}</h4>
+                <h4>Departure Port: {props.selected.fields["Departure Port Name"]}</h4>
+                <h4>Destination Port: {props.selected.fields["Destination Port Name"]}</h4>
+                <h4>Booking Date: {props.selected.fields["Customer Booking (CBK)"]}</h4>
+                <h4>Picked up Date: {props.selected.fields["Pick UP from Customer (PUP)"]}</h4>
+                <h4>Depart Date: {props.selected.fields["Depart from Origin Port (DEP)"]}</h4>
+                <h4>Destination Port Arrival Date: {props.selected.fields["Arrive At Destination Port (ARR)"]}</h4>
+                {!props.selected.fields["Proof Of Delivery (POD)"] ? (<h4>Not Delivered Yet!</h4>) : (<h4>Proof of Delivery Completed Date: {props.selected.fields["Proof Of Delivery (POD)"]}</h4>)}
             </div>
 
         )

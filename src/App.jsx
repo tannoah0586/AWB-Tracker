@@ -7,6 +7,7 @@ import AWBCard from './components/AWBCard';
 const App = () => {
   const [awbList,setAwbList] = useState([]);
   const [selected,setSelected] = useState(null);
+  const [awbShortlist,setAWBshortlist] = useState([]);
 
   useEffect(()=>{
     const fetchDefaultData = async () => {

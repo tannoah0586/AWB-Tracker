@@ -57,3 +57,11 @@
   position: sticky;
   top: 0; 
 }
+
+.awb-list li, .awb-list button {
+  display: inline;
+}
+
+.awb-list-container {
+  width: 60%;
+}
