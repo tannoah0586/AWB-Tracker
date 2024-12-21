@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+.container {
+  display: flex;
+}
+
+.awb-list, .awb-details {
+  flex: 1;
+  padding: 10px;
+}

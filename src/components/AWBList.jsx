@@ -1,6 +1,6 @@
 const AWBList = (props) => {
     const awbs = props.awbList.map((awb)=> (
-    <a key={awb.id} onClick={() => props.updateSelected(awb)}>
+    <a key={awb.id} onClick={() => props.updateSelected(awb)} class="awb-list">
         <li>{awb?.fields["HAWB/HBL"]}</li>
     </a>
     ));
