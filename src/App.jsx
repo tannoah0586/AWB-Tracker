@@ -27,7 +27,9 @@ const updateSelected = (awb) => {
   return (
   <div className="container">
     <AWBList awbList = { awbList } updateSelected = { updateSelected } />
-    <AWBCard selected = { selected } />
+    <div className='sticky-card'>
+      <AWBCard selected = { selected } />
+    </div>
   </div>
   )
 };

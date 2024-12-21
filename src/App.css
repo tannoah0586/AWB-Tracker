@@ -41,11 +41,19 @@
   color: #888;
 }
 
+
 .container {
   display: flex;
+  height: 100vh; 
+  overflow-y: auto; 
 }
-
 .awb-list, .awb-details {
   flex: 1;
-  padding: 10px;
+  padding: 30px;
+}
+
+.sticky-card {
+  position: -webkit-sticky; 
+  position: sticky;
+  top: 0; 
 }

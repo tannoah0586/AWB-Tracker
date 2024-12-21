@@ -1,7 +1,7 @@
 const AWBCard = (props) => {
     if(!props.selected)
         return (
-            <div class="awb-details">
+            <div>
                 <h1>No Details!</h1>
             </div>
         )
