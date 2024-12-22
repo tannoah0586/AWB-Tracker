@@ -9,6 +9,10 @@ const App = () => {
   const [selected,setSelected] = useState(null);
   const [awbShortlist,setAWBshortlist] = useState([]);
 
+  const handleAddAWB = (awb) => {
+    setAWBshortlist([...awbShortlist,awb]);
+  };
+
   useEffect(()=>{
     const fetchDefaultData = async () => {
       try {
@@ -27,7 +31,7 @@ const updateSelected = (awb) => {
 
   return (
   <div className="container">
-    <AWBList awbList = { awbList } updateSelected = { updateSelected } />
+    <AWBList awbList = { awbList } updateSelected = { updateSelected } handleAddAWB = { handleAddAWB }/>
     <div className='sticky-card'>
       <AWBCard selected = { selected } />
     </div>
