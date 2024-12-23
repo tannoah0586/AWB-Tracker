@@ -1,8 +1,8 @@
-const AWBCard = (props) => {
+const AWBCard = (props) => { //need to destruct and simplify if time allows
     if(!props.selected)
         return (
             <div>
-                <h1>No Details!</h1>
+                <h1>No AWBs Selected Yet!</h1>
             </div>
         )
         return (
