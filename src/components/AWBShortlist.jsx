@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const AWBShortlist =(props)=> {
     // const awbs = props.awbShortlist.map((awb)=> (
     //     <a key={awb.id} onClick={() => props.updateSelected(awb)} className="awb-list">
@@ -15,7 +17,7 @@ const AWBShortlist =(props)=> {
     //     );
 
     return (
-        <div className="awb-list-container">
+        <div>
             <h1>AWB Shortlist</h1>
             <h3>Number of AWBs in Shortlist: {props.awbShortlist.length}</h3>
             {!props.awbShortlist.length ? (
@@ -23,10 +25,10 @@ const AWBShortlist =(props)=> {
             ) : (
                 <ul>
                     {props.awbShortlist.map((awb) => (
-                        <a key={awb.id} onClick={() => props.updateSelected(awb)} className="awb-list">
+                        <Link to={'/awbShortlist'} key={awb.id} onClick={() => props.updateSelected(awb)} >
                             <li>{awb?.fields["HAWB/HBL"]}</li>
-                            <button className="button" onClick={() => props.handleRemoveAWB(awb)}>Remove from shortlist</button>
-                        </a>
+                            <button onClick={() => props.handleRemoveAWB(awb)}>Remove from shortlist</button>
+                        </Link>
                     ))}
                 </ul>
             )}

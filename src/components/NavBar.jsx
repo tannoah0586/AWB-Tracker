@@ -8,6 +8,9 @@ const NavBar = () => {
                    <Link to='/'>Home</Link>
                 </li>
                 <li>
+                    <Link to='/awbList'>AWB List</Link>
+                </li>
+                <li>
                     <Link to='/awbShortlist'>AWB Shortlist</Link>
                 </li>
             </ul>

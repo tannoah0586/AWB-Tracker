@@ -43,12 +43,12 @@ const updateSelected = (awb) => {
   return (
       <>
         <NavBar />
-        <div className='sticky-card container'>
-            <AWBList awbList = { awbList } updateSelected = { updateSelected } handleAddAWB = { handleAddAWB }/>
+        <div >
             <AWBCard selected = { selected } />
         </div>
           <Routes>
             <Route path='/' element={<h2>Home Page</h2>} />
+            <Route path= '/awbList' element={<AWBList awbList = { awbList } updateSelected = { updateSelected } handleAddAWB = { handleAddAWB }/>} />
             <Route path='/awbShortlist' element={<AWBShortlist awbShortlist = { awbShortlist } handleRemoveAWB = { handleRemoveAWB } updateSelected = { updateSelected }/>} />
           </Routes>
       </>
