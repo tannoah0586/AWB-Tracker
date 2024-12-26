@@ -1,9 +1,11 @@
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import * as awbService from './services/awbService'
 import AWBList from './components/AWBList';
 import AWBCard from './components/AWBCard';
 import AWBShortlist from './components/AWBShortlist';
+import NavBar from './components/NavBar';
+import { Link, Route, Routes } from 'react-router-dom';
 
 const App = () => {
   const [awbList,setAwbList] = useState([]);
@@ -39,16 +41,18 @@ const updateSelected = (awb) => {
 }
 
   return (
-  <div className="container">
-    <AWBList awbList = { awbList } updateSelected = { updateSelected } handleAddAWB = { handleAddAWB }/>
-    <div className='sticky-card'>
-      <AWBCard selected = { selected } />
-    </div>
-    <div className='sticky-card'>
-      <AWBShortlist awbShortlist = { awbShortlist } handleRemoveAWB = { handleRemoveAWB } updateSelected = { updateSelected }/>
-    </div>
-  </div>
-  )
+      <>
+        <NavBar />
+        <div className='sticky-card container'>
+            <AWBList awbList = { awbList } updateSelected = { updateSelected } handleAddAWB = { handleAddAWB }/>
+            <AWBCard selected = { selected } />
+        </div>
+          <Routes>
+            <Route path='/' element={<h2>Home Page</h2>} />
+            <Route path='/awbShortlist' element={<AWBShortlist awbShortlist = { awbShortlist } handleRemoveAWB = { handleRemoveAWB } updateSelected = { updateSelected }/>} />
+          </Routes>
+      </>
+  );
 };
 
 export default App;

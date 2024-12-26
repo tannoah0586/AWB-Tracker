@@ -64,4 +64,5 @@
 
 .awb-list-container {
   width: 70%;
+  overflow: auto;
 }
