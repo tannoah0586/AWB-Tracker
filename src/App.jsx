@@ -5,23 +5,23 @@ import AWBList from './components/AWBList';
 import AWBCard from './components/AWBCard';
 import AWBShortlist from './components/AWBShortlist';
 import NavBar from './components/NavBar';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
   const [awbList,setAwbList] = useState([]);
   const [selected,setSelected] = useState(null);
   const [awbShortlist,setAWBshortlist] = useState([]);
 
-  const handleAddAWB = (awb) => {
+  const handleAddAWB = (e, awb) => {
+    e.preventDefault();
     setAWBshortlist([...awbShortlist,awb]);
     setAwbList(awbList.filter((element) => element.id !== awb.id));
-    // console.log(awbShortlist); //okay works
   };
 
-  const handleRemoveAWB = (awb) => {
+  const handleRemoveAWB = (e, awb) => {
+    e.preventDefault();
     setAwbList([...awbList,awb]);
     setAWBshortlist(awbShortlist.filter((element) => element.id !== awb.id));
-    // console.log(awbShortlist);//okay works
   }
 
   useEffect(()=>{
@@ -36,23 +36,26 @@ const App = () => {
     fetchDefaultData();
   },[]);
   
-const updateSelected = (awb) => {
+const updateSelected = (e, awb) => {
+  e.preventDefault();
   setSelected(awb)
 }
 
-  return (
-      <>
-        <NavBar />
-        <div >
-            <AWBCard selected = { selected } />
-        </div>
-          <Routes>
-            <Route path='/' element={<h2>Home Page</h2>} />
-            <Route path= '/awbList' element={<AWBList awbList = { awbList } updateSelected = { updateSelected } handleAddAWB = { handleAddAWB }/>} />
-            <Route path='/awbShortlist' element={<AWBShortlist awbShortlist = { awbShortlist } handleRemoveAWB = { handleRemoveAWB } updateSelected = { updateSelected }/>} />
-          </Routes>
-      </>
-  );
+return (
+  <>
+      <NavBar />
+      <Routes>
+          <Route path='/' element={<h2>Home Page</h2>} />
+          <Route path='/awbList' element={
+              <>
+                  <AWBCard selected={selected} />
+                  <AWBList awbList={awbList} updateSelected={updateSelected} handleAddAWB={handleAddAWB} />
+              </>
+          } />
+          <Route path='/awbShortlist' element={<AWBShortlist awbShortlist={awbShortlist} handleRemoveAWB={handleRemoveAWB} updateSelected={updateSelected} />} />
+      </Routes>
+  </>
+);
 };
 
 export default App;

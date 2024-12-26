@@ -28,10 +28,10 @@ const AWBList = (props) => {
                 <ul>
                     {props.awbList.map((awb) => (
                         <div key={awb.id} >
-                            <Link to={'/awbDetails'} onClick={() => props.updateSelected(awb)}>
+                            <Link to={'/awbDetails'} onClick={(e) => props.updateSelected(e,awb)}>
                                 <li>{awb?.fields["HAWB/HBL"]}</li>
                             </Link>
-                            <button onClick={() => props.handleAddAWB(awb)}>Add to shortlist</button>
+                            <button onClick={(e) => props.handleAddAWB(e,awb)}>Add to shortlist</button>
                         </div>
                     ))}
                 </ul>

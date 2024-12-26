@@ -25,9 +25,9 @@ const AWBShortlist =(props)=> {
             ) : (
                 <ul>
                     {props.awbShortlist.map((awb) => (
-                        <Link to={'/awbShortlist'} key={awb.id} onClick={() => props.updateSelected(awb)} >
+                        <Link to={'/awbShortlist'} key={awb.id} >
                             <li>{awb?.fields["HAWB/HBL"]}</li>
-                            <button onClick={() => props.handleRemoveAWB(awb)}>Remove from shortlist</button>
+                            <button onClick={(e) => props.handleRemoveAWB(e, awb)}>Remove from shortlist</button>
                         </Link>
                     ))}
                 </ul>
