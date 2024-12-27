@@ -1,32 +1,22 @@
 import { Link } from 'react-router-dom';
 
 const AWBList = (props) => {
-    // const awbs = props.awbList.map((awb)=> (
-    // <a key={awb.id} onClick={() => props.updateSelected(awb)} className="awb-list">
-    //     <li>{awb?.fields["HAWB/HBL"]}</li>
-    //     <button className="button" onClick={() =>  props.handleAddAWB(awb) }>Add to shortlist</button>
-    // </a>
-    // ));
+    const filteredAwbList = props.awbList.filter(awb =>
+        props.transportMode === 'all' || awb.fields["Transport Mode"] === props.transportMode
+    );
 
-    // return (
-    //     <div className="awb-list-container">
-    //     <h1>AWB List</h1>
-    //         <h3>Number of AWBs Fetched with Freight Provider in the last 40 calendar days: {awbs?.length}</h3>
-    //         <h3>Filtering option:  ToDo</h3>
-    //         {!props.awbList.length ? <h2>No AWBs Yet!</h2> : 
-    //             <ul>{awbs}</ul>}
-    //     </div>
-    // );
     return (
         <div>
-            <h1>AWB List</h1>
-            <h3>Number of AWBs Fetched with Freight Provider in the last 40 calendar days: {props.awbList.length}</h3>
-            <h3>Filtering option: ToDo</h3>
-            {!props.awbList.length ? (
-                <h2>No AWBs Yet!</h2>
+            <h2>AWB List</h2>
+            <h3>Number of AWBs Fetched from Freight Provider in the last 40 calendar days in the list: {props.awbList.length}</h3>
+            <button onClick={() => props.handleTransportModeChange('Air')}>Air</button>
+            <button onClick={() => props.handleTransportModeChange('Ocean')}>Ocean</button>
+            <button onClick={() => props.handleTransportModeChange('all')}>All</button>
+            {!filteredAwbList.length ? (
+                    <h2>Fetching AWBs from Airtables, please wait</h2>
             ) : (
                 <ul>
-                    {props.awbList.map((awb) => (
+                    {filteredAwbList.map((awb) => (
                         <div key={awb.id} >
                             <Link to={'/awbDetails'} onClick={(e) => props.updateSelected(e,awb)}>
                                 <li>{awb?.fields["HAWB/HBL"]}</li>

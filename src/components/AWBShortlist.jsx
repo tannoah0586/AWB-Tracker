@@ -18,10 +18,10 @@ const AWBShortlist =(props)=> {
 
     return (
         <div>
-            <h1>AWB Shortlist</h1>
+            <h2>AWB Shortlist</h2>
             <h3>Number of AWBs in Shortlist: {props.awbShortlist.length}</h3>
             {!props.awbShortlist.length ? (
-                <h2>Shortlist Empty!</h2>
+                <h3>Shortlist Empty!</h3>
             ) : (
                 <ul>
                     {props.awbShortlist.map((awb) => (

@@ -2,12 +2,12 @@ const AWBCard = (props) => { //need to destruct and simplify if time allows
     if(!props.selected)
         return (
             <div>
-                <h1>No AWBs Selected Yet!</h1>
+                <h2>No AWBs Selected Yet!</h2>
             </div>
         )
         return (
             <div>
-                <h1>AWB Details</h1>
+                <h2>AWB Details</h2>
                 <h4>Transport Mode: {props.selected.fields["Transport Mode"]}</h4>
                 <h4>AWB Number: {props.selected.fields["HAWB/HBL"]}</h4>
                 <h4>Departure Port: {props.selected.fields["Departure Port Name"]}</h4>
