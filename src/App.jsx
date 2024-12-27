@@ -13,14 +13,14 @@ const App = () => {
   const [selected,setSelected] = useState(null);
   const [awbShortlist,setAWBshortlist] = useState([]);
   const [transportMode, setTransportMode] = useState('all');
-  const [origin,setOrigin] = useState('all');
+  const [departurePort,setDeparturePort] = useState('');
 
   const handleTransportModeChange = (mode) => {
     setTransportMode(mode)
   };
 
   const handleOriginChange = (origin) => {
-    setOrigin(origin)
+    setDeparturePort(origin)
   }
 
   const handleAddAWB = (e, awb) => {
@@ -61,10 +61,25 @@ return (
           <Route path='/awbList' element={
               <>
                   <AWBCard selected={selected} />
-                  <AWBList awbList={awbList} updateSelected={updateSelected} handleAddAWB={handleAddAWB} handleTransportModeChange = { handleTransportModeChange } transportMode = { transportMode } handleOriginChange = { handleOriginChange } origin = { origin }/>
+                  <AWBList 
+                    awbList={awbList} 
+                    updateSelected={updateSelected} 
+                    handleAddAWB={handleAddAWB} 
+                    handleTransportModeChange = { handleTransportModeChange } 
+                    transportMode = { transportMode } 
+                    handleOriginChange = { handleOriginChange } 
+                    departurePort = { departurePort }
+                    origin = { origin } 
+                  />
               </>
           } />
-          <Route path='/awbShortlist' element={<AWBShortlist awbShortlist={awbShortlist} handleRemoveAWB={handleRemoveAWB} updateSelected={updateSelected} />} />
+          <Route path='/awbShortlist' element={
+            <AWBShortlist 
+              awbShortlist={awbShortlist} 
+              handleRemoveAWB={handleRemoveAWB} 
+              updateSelected={updateSelected} 
+            />} 
+          />
       </Routes>
   </>
 );
