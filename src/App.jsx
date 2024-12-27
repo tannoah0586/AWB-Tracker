@@ -15,7 +15,6 @@ const App = () => {
   const [transportMode, setTransportMode] = useState('all');
 
   const handleTransportModeChange = (mode) => {
-    console.log("Transport mode changed to:", mode);
     setTransportMode(mode)
   };
 

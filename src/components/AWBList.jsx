@@ -9,6 +9,7 @@ const AWBList = (props) => {
         <div>
             <h2>AWB List</h2>
             <h3>Number of AWBs Fetched from Freight Provider in the last 40 calendar days in the list: {props.awbList.length}</h3>
+            <h3>Filter option based on transport mode</h3>
             <button onClick={() => props.handleTransportModeChange('Air')}>Air</button>
             <button onClick={() => props.handleTransportModeChange('Ocean')}>Ocean</button>
             <button onClick={() => props.handleTransportModeChange('all')}>All</button>
