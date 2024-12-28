@@ -10,5 +10,5 @@ return (
      </div>
 )
 }
-
+console.log(FilteredAWBList);
 export default FilteredAWBList

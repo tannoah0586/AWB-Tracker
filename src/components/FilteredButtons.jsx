@@ -1,4 +1,4 @@
-const FilteredButtons = ({ handleTransportModeChange, departurePort, handleOriginChange })=> {
+const FilteredButtons = ({ handleTransportModeChange, departurePort, handleOriginChange, })=> {
 return(
     <div>
     <h3>Filter option based on transport mode</h3>
@@ -6,7 +6,7 @@ return(
         <button onClick={() => handleTransportModeChange('Ocean')}>Ocean</button>
         <button onClick={() => handleTransportModeChange('all')}>All</button>
         <h3>Filtered by Departure Port</h3>
-        <select value={ departurePort } onChange = {handleOriginChange}>
+        <select value = { departurePort } onChange = {(e) => handleOriginChange(e) }>
             <option value = "BANGALORE">BANGALORE</option>
             <option value = "MUMBAI">MUMBAI</option>
             <option value = "SHANGHAI">SHANGHAI</option>

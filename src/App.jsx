@@ -16,11 +16,13 @@ const App = () => {
   const [departurePort,setDeparturePort] = useState('');
 
   const handleTransportModeChange = (mode) => {
+    console.log("Transport mode changed to:", mode);
     setTransportMode(mode)
   };
 
-  const handleOriginChange = (origin) => {
-    setDeparturePort(origin)
+  const handleOriginChange = (e) => {
+    console.log("Departure port changed to:", e.target.value);
+    setDeparturePort(e.target.value)
   }
 
   const handleAddAWB = (e, awb) => {
