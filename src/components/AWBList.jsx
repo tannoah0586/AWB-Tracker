@@ -3,7 +3,8 @@ import FilteredAWBList from './FilteredAWBList';
 
 const AWBList = (props) => {
     const filteredAwbList = props.awbList.filter(awb => {
-        return(props.transportMode === 'all' || awb.fields["Transport Mode"] === props.transportMode) && (awb.fields["Departure Port Name"] === props.departurePort)
+        return(props.transportMode === 'all' || awb.fields["Transport Mode"] === props.transportMode) &&
+            (props.departurePort === '' || awb.fields["Departure Port Name"] === props.departurePort)
     });
         
     return (
