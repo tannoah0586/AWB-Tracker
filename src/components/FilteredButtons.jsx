@@ -1,6 +1,11 @@
 const FilteredButtons = ({ handleTransportModeChange, departurePort, handleOriginChange, handleDeliverStatus })=> {
 return(
     <div>
+        <h3>Filter by Risk Level</h3>
+        <button onClick={() => handleDeliverStatus('')}>Not Delivered</button>
+        <button onClick={() => handleDeliverStatus('')}>Near Risk</button>
+        <button onClick={() => handleDeliverStatus('all')}>All</button>
+        <hr></hr>
     <h3>Filter by transport mode</h3>
         <button onClick={() => handleTransportModeChange('Air')}>Air</button>
         <button onClick={() => handleTransportModeChange('Ocean')}>Ocean</button>
@@ -16,10 +21,7 @@ return(
             <option value = "SHANGHAI">SHANGHAI</option>
         </select>
         <hr></hr>
-        <h3>Filter by Risk Level</h3>
-        <button onClick={() => handleDeliverStatus('')}>At Risk</button>
-        <button onClick={() => handleDeliverStatus('all')}>ALL</button>
-        <hr></hr>
+   
     </div>
 )}
 
