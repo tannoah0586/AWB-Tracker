@@ -14,12 +14,18 @@ const App = () => {
   const [awbShortlist,setAWBshortlist] = useState([]);
   const [transportMode, setTransportMode] = useState('all');
   const [departurePort,setDeparturePort] = useState('');
+  const [deliverStatus, setDeliverStatus] = useState('all');
 
+  const handleDeliverStatus = (status) => {
+    setDeliverStatus(status);
+};
   const handleTransportModeChange = (mode) => {
     setTransportMode(mode)
+
   };
 
   const handleOriginChange = (e) => {
+    e.preventDefault();
     setDeparturePort(e.target.value)
   }
 
@@ -69,7 +75,8 @@ return (
                     transportMode = { transportMode } 
                     handleOriginChange = { handleOriginChange } 
                     departurePort = { departurePort }
-                    origin = { origin } 
+                    deliverStatus = { deliverStatus }
+                    handleDeliverStatus = { handleDeliverStatus }
                   />
               </>
           } />
