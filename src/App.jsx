@@ -7,6 +7,7 @@ import AWBShortlist from './components/AWBShortlist';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const App = () => {
   const [awbList,setAwbList] = useState([]);
@@ -18,6 +19,7 @@ const App = () => {
 
   const handleDeliverStatus = (status) => {
     setDeliverStatus(status);
+    console.log(deliverStatus)
 };
   const handleTransportModeChange = (mode) => {
     setTransportMode(mode)
@@ -64,10 +66,12 @@ return (
       <NavBar />
       <Routes>
           <Route path='/' element={<h2>Home Page</h2>} />
-          <Route path='/awbList' element={
-              <>
-                  <AWBCard selected={selected} />
+          <Route 
+            path='/awbList' 
+            element={
+              <div className="awb-container">
                   <AWBList 
+                    className="awb-list" 
                     awbList={awbList} 
                     updateSelected={updateSelected} 
                     handleAddAWB={handleAddAWB} 
@@ -78,7 +82,10 @@ return (
                     deliverStatus = { deliverStatus }
                     handleDeliverStatus = { handleDeliverStatus }
                   />
-              </>
+                  <AWBCard 
+                    className="awb-card"
+                    selected={selected} />
+              </div>
           } />
           <Route path='/awbShortlist' element={
             <AWBShortlist 

@@ -1,0 +1,22 @@
+.awb-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .awb-container > * {
+    flex: 1;
+    margin: 10px;
+  }
+  
+  .awb-container .awb-list {
+    flex: 2;
+  }
+  
+  .awb-container .awb-card {
+    flex: 1;
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 10px; 
+  }
