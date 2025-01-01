@@ -1,23 +1,51 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
 const AWBCard = ({ selected }) => { //need to destruct and simplify if time allows
     if(!selected)
         return (
-            <div>
-                <h2>No AWBs Selected Yet!</h2>
-            </div>
+            <Card 
+                sx={{ minWidth: 275 }}
+                variant='outlined'
+            >
+                <CardContent>
+                    <Typography variant="body2">No AWBs Selected Yet!</Typography>
+                </CardContent>
+            </Card>
         )
         return (
-            <div>
-                <h2>AWB Details</h2>
-                <h4>Transport Mode: {selected.fields["Transport Mode"]}</h4>
-                <h4>AWB Number: {selected.fields["HAWB/HBL"]}</h4>
-                <h4>Departure Port: {selected.fields["Departure Port Name"]}</h4>
-                <h4>Destination Port: {selected.fields["Destination Port Name"]}</h4>
-                <h4>Booking Date: {selected.fields["Customer Booking (CBK)"]}</h4>
-                <h4>Picked up Date: {selected.fields["Pick UP from Customer (PUP)"]}</h4>
-                <h4>Depart Date: {selected.fields["Depart from Origin Port (DEP)"]}</h4>
-                <h4>Destination Port Arrival Date: {selected.fields["Arrive At Destination Port (ARR)"]}</h4>
-                {!selected.fields["Proof Of Delivery (POD)"] ? (<h4>Not Delivered Yet!</h4>) : (<h4>Proof of Delivery Completed Date: {selected.fields["Proof Of Delivery (POD)"]}</h4>)}
-            </div>
+            <Card 
+                sx={{ minWidth: 275 }}
+                variant="outlined"
+            >
+                <CardContent>
+                    <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 20 }}>AWB Details</Typography>
+                    <br />
+                    <Typography variant="body2">Transport Mode: {selected.fields["Transport Mode"]}</Typography>
+                    <Typography variant="body2">AWB Number: {selected.fields["HAWB/HBL"]}</Typography>
+                    <Typography variant="body2">Departure Port: {selected.fields["Departure Port Name"]}</Typography>
+                    <Typography variant="body2">Destination Port: {selected.fields["Destination Port Name"]}</Typography>
+                    <Typography variant="body2">Booking Date: {selected.fields["Customer Booking (CBK)"]}</Typography>
+                    <Typography variant="body2">Picked up Date: {selected.fields["Pick UP from Customer (PUP)"]}</Typography>
+                    <Typography variant="body2">Depart Date: {selected.fields["Depart from Origin Port (DEP)"]}</Typography>
+                    <Typography variant="body2">Destination Port Arrival Date: {selected.fields["Arrive At Destination Port (ARR)"]}</Typography>
+                    {!selected.fields["Proof Of Delivery (POD)"] ? (<Typography variant="body2">Not Delivered Yet!</Typography>) : (<Typography variant="body2">Proof of Delivery Completed Date: {selected.fields["Proof Of Delivery (POD)"]}</Typography>)}
+                </CardContent>
+                <CardActions>
+                    <Button 
+                        size="small"
+                        onClick={(e)=> {
+                            e.preventDefault();
+                            window.open(`https://www.dbschenker.com/app/tracking-public/?refNumber=${selected.fields["HAWB/HBL"]}&language_region=en-US_US&uiMode=`);
+                        }}
+                    >Learn More</Button>
+                 </CardActions>
+            </Card>
 
         )
 };
