@@ -26,8 +26,8 @@ const AWBCard = ({ selected }) => { //need to destruct and simplify if time allo
                 <CardContent>
                     <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 20 }}>AWB Details</Typography>
                     <br />
-                    <Typography variant="body2">Transport Mode: {selected.fields["Transport Mode"]}</Typography>
                     <Typography variant="body2">AWB Number: {selected.fields["HAWB/HBL"]}</Typography>
+                    <Typography variant="body2">Transport Mode: {selected.fields["Transport Mode"]}</Typography>
                     <Typography variant="body2">Departure Port: {selected.fields["Departure Port Name"]}</Typography>
                     <Typography variant="body2">Destination Port: {selected.fields["Destination Port Name"]}</Typography>
                     <Typography variant="body2">Booking Date: {selected.fields["Customer Booking (CBK)"]}</Typography>

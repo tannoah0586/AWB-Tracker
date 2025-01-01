@@ -1,21 +1,23 @@
+import React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
-        <nav>
-            <ul>
-                <li>
-                   <Link to='/'>Home</Link>
-                </li>
-                <li>
-                    <Link to='/awbList'>AWB List</Link>
-                </li>
-                <li>
-                    <Link to='/awbShortlist'>AWB Shortlist</Link>
-                </li>
-            </ul>
-        </nav>
-    )
+        <AppBar position="static">
+            <Toolbar>
+                <Typography variant="h6" style={{ flexGrow: 1 }}>
+                    WayBill Tracker V_1
+                </Typography>
+                <Button color="inherit" component={Link} to='/'>Home</Button>
+                <Button color="inherit" component={Link} to='/awbList'>AWB List</Button>
+                <Button color="inherit" component={Link} to='/awbShortlist'>AWB Shortlist</Button>
+            </Toolbar>
+        </AppBar>
+    );
 }
 
-export default NavBar
+export default NavBar;

@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -9,15 +8,18 @@ import Select from '@mui/material/Select';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 
+
 const FilteredButtons = ({ handleTransportModeChange, departurePort, handleOriginChange, handleDeliverStatus })=> {
 return(
     <Card sx={{ minWidth: 500 }}>
     <div variant="contained" aria-label="Basic button group">
-        <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 20 }}>Filter by Transport mode</Typography>
+        <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 20 }}>
+            Filter by Transport mode</Typography>
             <Button onClick={() => handleTransportModeChange('Air')}>Air</Button>
             <Button onClick={() => handleTransportModeChange('Ocean')}>Ocean</Button>
             <Button onClick={() => handleTransportModeChange('all')}>All</Button>   
-        <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 20 }}>Filter by Risk Level</Typography>
+        <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 20 }}>
+            Filter by Risk Level</Typography>
             <Button onClick={() => handleDeliverStatus(null)}>Not Delivered</Button>
             <Button onClick={() => handleDeliverStatus('somevalue')}>Delivered</Button>
             <Button onClick={() => handleDeliverStatus('all')}>All</Button>

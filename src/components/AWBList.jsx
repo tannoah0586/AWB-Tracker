@@ -37,5 +37,4 @@ const AWBList = (props) => {
     
 };
 
-
 export default AWBList;

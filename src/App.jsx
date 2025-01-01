@@ -62,7 +62,7 @@ const updateSelected = (e, awb) => {
 
 return (
   <>
-      <Header />
+      {/* <Header /> */} 
       <NavBar />
       <Routes>
           <Route path='/' element={<h2>Home Page</h2>} />
