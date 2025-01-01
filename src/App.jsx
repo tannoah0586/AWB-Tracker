@@ -7,7 +7,7 @@ import AWBShortlist from './components/AWBShortlist';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 const App = () => {
   const [awbList,setAwbList] = useState([]);
