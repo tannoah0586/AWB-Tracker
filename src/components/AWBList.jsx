@@ -16,21 +16,25 @@ const AWBList = (props) => {
                 departurePort = { props.departurePort } 
                 handleDeliverStatus = { props.handleDeliverStatus }
             /> 
-            {!filteredAwbList.length ? (
-                    <h2>Fetching AWBs from Airtables, please wait</h2>
+            {props.loading ? (
+                <h2>Fetching AWBs from Airtables, please wait</h2>
             ) : (
-                <ul>
-                    <h2>AWB List</h2>
-                    <h3>Number of Filtered AWBs fetched from Service provider in the last 40 calendar days: {filteredAwbList.length}</h3>
-                    {filteredAwbList.map((awb) => (
-                        <FilteredAWBList 
-                            handleAddAWB = { props.handleAddAWB } 
-                            awb ={ awb } 
-                            updateSelected = { props.updateSelected } 
-                            key={ awb.id }
-                        />                                                                      
-                    ))}
-                </ul>
+                filteredAwbList.length === 0 ? (
+                    <h2>No AWBs found</h2>
+                ) : (
+                    <ul>
+                        <h2>AWB List</h2>
+                        <h3>Number of Waybills: {filteredAwbList.length}</h3>
+                        {filteredAwbList.map((awb) => (
+                            <FilteredAWBList 
+                                handleAddAWB={props.handleAddAWB} 
+                                awb={awb} 
+                                updateSelected={props.updateSelected} 
+                                key={awb.id}
+                            />                                                                 
+                        ))}
+                    </ul>
+                )
             )}
         </div>
     );

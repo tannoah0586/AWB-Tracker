@@ -9,3 +9,7 @@ user Stories
 5. As a user, i want an email to be sent cc myself and service provider to request update of at risk shipments (future backend)
 6. As a user, i want a weekly table report on the status of the near risk or at risk shipments (future backend)
 
+
+
+
+

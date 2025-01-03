@@ -16,6 +16,7 @@ const App = () => {
   const [transportMode, setTransportMode] = useState('all');
   const [departurePort,setDeparturePort] = useState('');
   const [deliverStatus, setDeliverStatus] = useState('all');
+  const [loading,setLoading] = useState(true);
 
   const handleDeliverStatus = (status) => {
     setDeliverStatus(status);
@@ -55,6 +56,22 @@ const App = () => {
     fetchDefaultApiData();
   },[]);
   
+//   useEffect(() => {
+//     const fetchDefaultApiData = async () => {
+//         try {
+//             setLoading(true);
+//             const data = await awbService.show();
+//             setAwbList(data);
+//             setLoading(false);
+//         } catch (error) {
+//             console.log(error);
+//             setLoading(false);
+//         }
+//     };
+//     fetchDefaultApiData();
+// }, []);
+  
+
 const updateSelected = (e, awb) => {
   e.preventDefault();
   setSelected(awb)
