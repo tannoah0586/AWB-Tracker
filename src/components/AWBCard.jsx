@@ -9,7 +9,7 @@ const AWBCard = ({ selected }) => { //need to destruct and simplify if time allo
     if(!selected)
         return (
             <Card 
-                sx={{ minWidth: 275 }}
+                sx={{ minWidth: 275, position: 'sticky', top: 60 }}
                 variant='outlined'
             >
                 <CardContent>
@@ -19,7 +19,7 @@ const AWBCard = ({ selected }) => { //need to destruct and simplify if time allo
         )
         return (
             <Card 
-                sx={{ minWidth: 275 }}
+                sx={{ minWidth: 275, position: 'sticky', top: 60 }}
                 variant="outlined"
             >
                 <CardContent>

@@ -10,6 +10,7 @@ import AWBShortlist from './components/AWBShortlist';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import { Pagination } from '@mui/material';
+import Box from '@mui/material/Box';
 
 
 const App = () => {
@@ -19,6 +20,8 @@ const App = () => {
   const [transportMode, setTransportMode] = useState('all');
   const [departurePort,setDeparturePort] = useState('');
   const [deliverStatus, setDeliverStatus] = useState('all');
+  const [buttonPress, setButtonPress] = useState('');
+  const [button2Press, setButton2Press] = useState('');
 
   const [awbList,setAwbList] = useState([]);
   const [loading,setLoading] = useState(true);
@@ -31,11 +34,11 @@ const App = () => {
 
   const handleDeliverStatus = (status) => {
     setDeliverStatus(status);
-    console.log(deliverStatus)
+    setButton2Press(status);
 };
   const handleTransportModeChange = (mode) => {
-    setTransportMode(mode)
-
+    setTransportMode(mode);
+    setButtonPress(mode);
   };
 
   const handleOriginChange = (e) => {
@@ -89,8 +92,7 @@ const updateSelected = (e, awb) => {
 }
 
 return (
-  <>
-      {/* <Header /> */} 
+  <Box  >
       <NavBar />
       <Routes>
           <Route path='/' element={<h2>Home Page</h2>} />
@@ -109,6 +111,8 @@ return (
                     departurePort = { departurePort }
                     deliverStatus = { deliverStatus }
                     handleDeliverStatus = { handleDeliverStatus }
+                    buttonPress = {buttonPress}
+                    button2Press = {button2Press}
                   />
                   {/* <Pagination 
                     length = {awbList.length}
@@ -128,7 +132,7 @@ return (
             />} 
           />
       </Routes>
-  </>
+  </Box>
 );
 };
 

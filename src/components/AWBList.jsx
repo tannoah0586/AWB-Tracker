@@ -1,7 +1,7 @@
 import FilteredButtons from './FilteredButtons';
 import FilteredAWBList from './FilteredAWBList';
 
-const AWBList = ({ awbList, transportMode, departurePort, deliverStatus , handleTransportModeChange , handleOriginChange, handleDeliverStatus, handleAddAWB, updateSelected}) => {
+const AWBList = ({ awbList, transportMode, departurePort, deliverStatus , handleTransportModeChange , handleOriginChange, handleDeliverStatus, handleAddAWB, updateSelected,buttonPress, button2Press}) => {
     const filteredAwbList = awbList.filter(awb => {
         return(transportMode === 'all' || awb.fields["Transport Mode"] === transportMode) &&
             (departurePort === '' || awb.fields["Departure Port Name"] === departurePort) &&
@@ -15,6 +15,8 @@ const AWBList = ({ awbList, transportMode, departurePort, deliverStatus , handle
                 handleOriginChange = {handleOriginChange} 
                 departurePort = {departurePort} 
                 handleDeliverStatus = {handleDeliverStatus}
+                buttonPress={buttonPress}
+                button2Press ={button2Press}
             /> 
             {filteredAwbList.length === 0 ? (
                     <h2>No AWBs found</h2>

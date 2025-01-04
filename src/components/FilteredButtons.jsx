@@ -9,20 +9,20 @@ import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 
 
-const FilteredButtons = ({ handleTransportModeChange, departurePort, handleOriginChange, handleDeliverStatus })=> {
+const FilteredButtons = ({ handleTransportModeChange, departurePort, handleOriginChange, handleDeliverStatus, buttonPress, button2Press })=> {
 return(
     <Card sx={{ minWidth: 500 }}>
     <div variant="contained" aria-label="Basic button group">
         <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 20 }}>
             Filter by Transport mode</Typography>
-            <Button onClick={() => handleTransportModeChange('Air')}>Air</Button>
-            <Button onClick={() => handleTransportModeChange('Ocean')}>Ocean</Button>
-            <Button onClick={() => handleTransportModeChange('all')}>All</Button>   
+            <Button onClick={() => handleTransportModeChange('Air')} sx={{ backgroundColor: buttonPress === 'Air' ? 'yellow' : 'default' }}>Air</Button>
+            <Button onClick={() => handleTransportModeChange('Ocean')} sx={{ backgroundColor: buttonPress === 'Ocean' ? 'yellow' : 'default' }}>Ocean</Button>
+            <Button onClick={() => handleTransportModeChange('all')} sx= {{ backgroundColor: buttonPress === 'all' ? 'yellow' : 'default' }}>All</Button>   
         <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 20 }}>
             Filter by Risk Level</Typography>
-            <Button onClick={() => handleDeliverStatus(null)}>Not Delivered</Button>
-            <Button onClick={() => handleDeliverStatus('somevalue')}>Delivered</Button>
-            <Button onClick={() => handleDeliverStatus('all')}>All</Button>
+            <Button onClick={() => handleDeliverStatus(null)} sx={{ backgroundColor: button2Press === null ? 'pink' : 'default' }}>Not Delivered</Button>
+            <Button onClick={() => handleDeliverStatus('somevalue')} sx={{ backgroundColor: button2Press === 'somevalue' ? 'pink' : 'default' }}>Delivered</Button>
+            <Button onClick={() => handleDeliverStatus('all')} sx={{ backgroundColor: button2Press === 'all' ? 'pink' : 'default' }}>All</Button>
             <Box >
                 <FormControl sx={{ width: 200 }}>
                 <InputLabel id='origin-port'>Origin Port</InputLabel>

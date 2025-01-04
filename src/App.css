@@ -7,16 +7,6 @@
   
   .awb-container > * {
     flex: 1;
-    margin: 10px;
+    margin: 20px;
   }
   
-  .awb-container .awb-list {
-    flex: 2;
-  }
-  
-  .awb-container .awb-card {
-    flex: 1;
-    position: -webkit-sticky; 
-    position: sticky;
-    top: 10px; 
-  }
