@@ -20,8 +20,7 @@ return(
             <Button onClick={() => handleTransportModeChange('all')} sx= {{ backgroundColor: buttonPress === 'all' ? 'yellow' : 'default' }}>All</Button>   
         <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 20 }}>
             Filter by Risk Level</Typography>
-            <Button onClick={() => handleDeliverStatus(null)} sx={{ backgroundColor: button2Press === null ? 'pink' : 'default' }}>Not Delivered</Button>
-            <Button onClick={() => handleDeliverStatus('somevalue')} sx={{ backgroundColor: button2Press === 'somevalue' ? 'pink' : 'default' }}>Delivered</Button>
+            <Button onClick={() => handleDeliverStatus(null)} sx={{ backgroundColor: button2Press === null ? 'pink' : 'default' }}>At Risk</Button> 
             <Button onClick={() => handleDeliverStatus('all')} sx={{ backgroundColor: button2Press === 'all' ? 'pink' : 'default' }}>All</Button>
             <Box >
                 <FormControl sx={{ width: 200 }}>

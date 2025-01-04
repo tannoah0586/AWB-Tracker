@@ -11,6 +11,7 @@ import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import { Pagination } from '@mui/material';
 import Box from '@mui/material/Box';
+import HomePage from './components/HomePage';
 
 
 const App = () => {
@@ -92,10 +93,13 @@ const updateSelected = (e, awb) => {
 }
 
 return (
+  <>
   <Box sx={{ position: 'fixed', top: 0, width: '100%' }} >
       <NavBar />
+  </Box>
+    <Box sx={{ marginTop: '64px' }}>
       <Routes>
-          <Route path='/' element={<h2>Home Page</h2>} />
+          <Route path='/' element={<HomePage />} />
           <Route 
             path='/awbList' 
             element={
@@ -133,6 +137,7 @@ return (
           />
       </Routes>
   </Box>
+  </>
 );
 };
 
