@@ -1,3 +1,6 @@
+// https://dev.to/canhamzacode/how-to-implement-pagination-with-reactjs-2b04
+// https://www.educative.io/answers/how-to-implement-pagination-in-reactjs
+
 import { useState, useEffect } from 'react'
 import './App.css'
 import * as awbService from './services/awbService'
@@ -6,17 +9,25 @@ import AWBCard from './components/AWBCard';
 import AWBShortlist from './components/AWBShortlist';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
+import { Pagination } from '@mui/material';
 
 
 const App = () => {
-  const [awbList,setAwbList] = useState([]);
+  
   const [selected,setSelected] = useState(null);
   const [awbShortlist,setAWBshortlist] = useState([]);
   const [transportMode, setTransportMode] = useState('all');
   const [departurePort,setDeparturePort] = useState('');
   const [deliverStatus, setDeliverStatus] = useState('all');
+
+  const [awbList,setAwbList] = useState([]);
   const [loading,setLoading] = useState(true);
+  const [currentPage,setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(15);
+
+  const handlePagination = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  }
 
   const handleDeliverStatus = (status) => {
     setDeliverStatus(status);
@@ -44,32 +55,32 @@ const App = () => {
     setAWBshortlist(awbShortlist.filter((element) => element.id !== awb.id));
   }
 
-  useEffect(()=>{
+  // useEffect(()=>{
+  //   const fetchDefaultApiData = async () => {
+  //     try { 
+  //       const data = await awbService.show();
+  //       setAwbList(data?.records);
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   };
+  //   fetchDefaultApiData();
+  // },[]);
+  
+  useEffect(() => {
     const fetchDefaultApiData = async () => {
-      try { 
-        const data = await awbService.show();
-        setAwbList(data?.records);
-      } catch (error) {
-        console.log(error)
-      }
+        try {
+            setLoading(true);
+            const data = await awbService.show();
+            setAwbList(data);
+            setLoading(false);
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+        }
     };
     fetchDefaultApiData();
-  },[]);
-  
-//   useEffect(() => {
-//     const fetchDefaultApiData = async () => {
-//         try {
-//             setLoading(true);
-//             const data = await awbService.show();
-//             setAwbList(data);
-//             setLoading(false);
-//         } catch (error) {
-//             console.log(error);
-//             setLoading(false);
-//         }
-//     };
-//     fetchDefaultApiData();
-// }, []);
+}, []);
   
 
 const updateSelected = (e, awb) => {
@@ -99,6 +110,11 @@ return (
                     deliverStatus = { deliverStatus }
                     handleDeliverStatus = { handleDeliverStatus }
                   />
+                  {/* <Pagination 
+                    length = {awbList.length}
+                    postsPerPage = {postsPerPage}
+                    handlePagination = {handlePagination}
+                  /> */}
                   <AWBCard 
                     className="awb-card"
                     selected={selected} />

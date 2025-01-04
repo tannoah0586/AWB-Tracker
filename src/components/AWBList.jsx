@@ -1,25 +1,22 @@
 import FilteredButtons from './FilteredButtons';
 import FilteredAWBList from './FilteredAWBList';
 
-const AWBList = (props) => {
-    const filteredAwbList = props.awbList.filter(awb => {
-        return(props.transportMode === 'all' || awb.fields["Transport Mode"] === props.transportMode) &&
-            (props.departurePort === '' || awb.fields["Departure Port Name"] === props.departurePort) &&
-            (props.deliverStatus === 'all' || !awb.fields["Proof Of Delivery (POD)"] || awb.fields["Proof Of Delivery (POD)"] === props.deliverStatus)
+const AWBList = ({ awbList, transportMode, departurePort, deliverStatus , handleTransportModeChange , handleOriginChange, handleDeliverStatus, handleAddAWB, updateSelected}) => {
+    const filteredAwbList = awbList.filter(awb => {
+        return(transportMode === 'all' || awb.fields["Transport Mode"] === transportMode) &&
+            (departurePort === '' || awb.fields["Departure Port Name"] === departurePort) &&
+            (deliverStatus === 'all' || !awb.fields["Proof Of Delivery (POD)"] || awb.fields["Proof Of Delivery (POD)"] === deliverStatus)
     });
         
     return (
         <div>
             <FilteredButtons 
-                handleTransportModeChange = {props.handleTransportModeChange} 
-                handleOriginChange = { props.handleOriginChange } 
-                departurePort = { props.departurePort } 
-                handleDeliverStatus = { props.handleDeliverStatus }
+                handleTransportModeChange = {handleTransportModeChange} 
+                handleOriginChange = {handleOriginChange} 
+                departurePort = {departurePort} 
+                handleDeliverStatus = {handleDeliverStatus}
             /> 
-            {props.loading ? (
-                <h2>Fetching AWBs from Airtables, please wait</h2>
-            ) : (
-                filteredAwbList.length === 0 ? (
+            {filteredAwbList.length === 0 ? (
                     <h2>No AWBs found</h2>
                 ) : (
                     <ul>
@@ -27,15 +24,16 @@ const AWBList = (props) => {
                         <h3>Number of Waybills: {filteredAwbList.length}</h3>
                         {filteredAwbList.map((awb) => (
                             <FilteredAWBList 
-                                handleAddAWB={props.handleAddAWB} 
+                                handleAddAWB={handleAddAWB} 
                                 awb={awb} 
-                                updateSelected={props.updateSelected} 
+                                updateSelected={updateSelected} 
                                 key={awb.id}
                             />                                                                 
                         ))}
+                        
                     </ul>
-                )
             )}
+            
         </div>
     );
     

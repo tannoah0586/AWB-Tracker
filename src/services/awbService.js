@@ -6,58 +6,58 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 // https://www.youtube.com/watch?v=6fOuDxcbjyg
 
-const show = async (url, offset) => {
-    try {
-        const url = 'https://api.airtable.com/v0/apphE3zWlHz0yHyz5/Shipments'
-        const apiKey = import.meta.env.VITE_API_TOKEN;
-
-        const response = await fetch(url, {
-            headers: {
-              'Authorization': `Bearer ${apiKey}`,
-              'Content-Type': 'application'
-            }
-        });
-        const data = await response.json()
-        console.log('Data:', data);
-        return data;
-    } catch (error) {
-        console.log(error);
-    }
-};
-
-export { show };
-
-// import Airtable from 'airtable';
-
 // const show = async () => {
 //     try {
-//         const baseId = 'apphE3zWlHz0yHyz5';
-//         const tableName = 'tbl5Vj0rjrKkrzE1w';
+//         const url = 'https://api.airtable.com/v0/apphE3zWlHz0yHyz5/Shipments'
 //         const apiKey = import.meta.env.VITE_API_TOKEN;
-//         const base = new Airtable({ apiKey }).base(baseId);
-        
-//         let data = [];
 
-//         return await new Promise((fulfil, reject) => {      //chained promise
-//             base(tableName).select({
-//                 maxRecords:200,
-//                 view: "Grid view",
-//             }).eachPage((records, fetchNextPage) => {
-//                 records.forEach(record => {
-//                     data.push(record);
-//                 });
-//                 fetchNextPage()
-//             }, (err) => {
-//                 if (err) {
-//                     reject(err);
-//                 } else {
-//                     fulfil(data);
-//                 }
-//             });
+//         const response = await fetch(url, {
+//             headers: {
+//               'Authorization': `Bearer ${apiKey}`,
+//               'Content-Type': 'application'
+//             }
 //         });
+//         const data = await response.json()
+//         console.log('Data:', data);
+//         return data;
 //     } catch (error) {
 //         console.log(error);
 //     }
 // };
 
 // export { show };
+
+import Airtable from 'airtable';
+
+const show = async () => {
+    try {
+        const baseId = 'apphE3zWlHz0yHyz5';
+        const tableName = 'tbl5Vj0rjrKkrzE1w';
+        const apiKey = import.meta.env.VITE_API_TOKEN;
+        const base = new Airtable({ apiKey }).base(baseId);
+        
+        let data = [];  //array outcome
+
+        return new Promise((fulfil, reject) => {      //chained promise
+            base(tableName).select({
+                maxRecords:200,
+                view: "Grid view",
+            }).eachPage((records, fetchNextPage) => {
+                records.forEach(record => {
+                    data.push(record);
+                });
+                fetchNextPage()
+            }, (err) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    fulfil(data);
+                }
+            });
+        });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export { show };
