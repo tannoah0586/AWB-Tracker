@@ -92,7 +92,7 @@ const updateSelected = (e, awb) => {
 }
 
 return (
-  <Box  >
+  <Box sx={{ position: 'fixed', top: 0, width: '100%' }} >
       <NavBar />
       <Routes>
           <Route path='/' element={<h2>Home Page</h2>} />
