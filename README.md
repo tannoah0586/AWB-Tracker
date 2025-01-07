@@ -14,6 +14,18 @@ This application streamlines supply chain management for engineers (users) by au
 6. As a user, i want a weekly table report on the status of the near risk or at risk shipments (future backend)
 
 
+# Link
 
+https://awb-tracker-fypxxlevx-tyxs-projects-d5847b3d.vercel.app
+
+# Challenges
+
+adding the filter logic, trial and error + testing involved 
+Airtables had a default ceiling cap of 100 API items, had to spend time reading its documentation for a bypass to lift the cap
+
+
+# Stretched Goals
+
+Adding Pagination to AWBList for ease of scrolling 
 
 
