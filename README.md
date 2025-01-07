@@ -2,7 +2,7 @@
 
 # Description
 
-This application automates the monitoring of critical Air Waybills (AWBs) for supply chain engineers, streamlining their workflow. It fetches AWB data directly from Oracle Trade Management (OTM), identifies potential risks within shipments, allows users to specify lanes or shipments for proactive monitoring, and creates a shortlist of critical AWBs. In the future, it will generate reports and send notifications to service providers or users to alert them about potential or imminent shipment risks. By automating these tasks, the application reduces manual effort and enables supply chain engineers to focus on higher-value projects and strategic initiatives.
+This application streamlines supply chain management for engineers (users) by automating the monitoring of critical Air Waybills (AWBs). While designed to integrate with Oracle Trade Management (OTM), it currently fetches AWB data manually uploaded from OTM into Airtable via API. Key features include identifying potential shipment risks, allowing users to proactively monitor specific lanes or shipments, and creating a shortlist of critical AWBs. By automating these tasks, the application users to minimize manual effort and focus on strategic initiatives. Future enhancements will include generating reports and sending notifications to proactively address potential shipment issues.
 
 # User Stories
 
