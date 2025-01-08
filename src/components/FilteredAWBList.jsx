@@ -5,9 +5,8 @@ import Button from '@mui/material/Button';
 
 const FilteredAWBList = ({ awb, updateSelected, handleAddAWB }) => {
 return (
-     <div key={awb.id} >
         <Box 
-            sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
+            sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2, zIndex:1,}}>
         <Link 
             to={'/awbDetails'} 
             onClick={(e) => updateSelected(e,awb)} 
@@ -19,13 +18,11 @@ return (
             color="primary" 
             aria-label="add" 
             onClick={(e) => handleAddAWB(e,awb)}
-            sx={{backgroundColor:'pink',     marginLeft: '20%',  zIndex: -1 }}
+            sx={{backgroundColor:'pink',  marginLeft: '20%', display: 'block'}}
         >
             Add to Shortlist
         </Button>
         </Box>
-
-     </div>
 )
 }
 export default FilteredAWBList

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
-        <AppBar sx={{ display: 'flex', position: 'sticky', width: '100%', zIndex: 10 }}>
+        <AppBar sx={{ display: 'flex', position: 'sticky', width: '100%', zIndex:100, background: 'linear-gradient(to right, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.5))'}}>
             <Toolbar>
                 <Typography variant="h6" style={{ flexGrow: 1 }}>
                     WayBill Tracker V_1

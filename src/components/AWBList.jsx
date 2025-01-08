@@ -1,5 +1,6 @@
 import FilteredButtons from './FilteredButtons';
 import FilteredAWBList from './FilteredAWBList';
+import Box from '@mui/material/Box';
 
 const AWBList = ({ awbList, transportMode, departurePort, deliverStatus , handleTransportModeChange , handleOriginChange, handleDeliverStatus, handleAddAWB, updateSelected,buttonPress, button2Press}) => {
     const filteredAwbList = awbList.filter(awb => {
@@ -9,7 +10,7 @@ const AWBList = ({ awbList, transportMode, departurePort, deliverStatus , handle
     });
         
     return (
-        <div>
+        <Box >
             <FilteredButtons 
                 handleTransportModeChange = {handleTransportModeChange} 
                 handleOriginChange = {handleOriginChange} 
@@ -21,22 +22,23 @@ const AWBList = ({ awbList, transportMode, departurePort, deliverStatus , handle
             {filteredAwbList.length === 0 ? (
                     <h2>No AWBs found</h2>
                 ) : (
-                    <ul>
-                        <h2>AWB List</h2>
-                        <h3>Number of Waybills: {filteredAwbList.length}</h3>
-                        {filteredAwbList.map((awb) => (
-                            <FilteredAWBList 
-                                handleAddAWB={handleAddAWB} 
-                                awb={awb} 
-                                updateSelected={updateSelected} 
-                                key={awb.id}
-                            />                                                                 
-                        ))}
-                        
-                    </ul>
+<Box sx={{ maxHeight: `calc(120vh - 120px)`, overflowY: 'auto' }}> 
+          <h2>AWB List</h2>
+          <h3>Number of Waybills: {filteredAwbList.length}</h3>
+          <ul>
+            {filteredAwbList.map((awb) => (
+              <li key={awb.id}>
+                <FilteredAWBList 
+                  awb={awb}
+                  handleAddAWB={handleAddAWB}
+                  updateSelected={updateSelected}
+                />
+              </li>
+            ))}
+          </ul>
+        </Box>
             )}
-            
-        </div>
+        </Box>
     );
     
 };
