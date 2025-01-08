@@ -7,8 +7,10 @@ const HomePage = () => {
         <Box>
             <img src= {url} alt="image of something related to waybill tracking" style={{ width: '100%', height: 'auto' }} 
             />
-            <h3>This app aims to helps you to keep track waybills efficiently and provides real-time updates on your shipments.</h3>
-            <h3>future development includes informing user and service providers automatically if shipment is at risk or near risk. report will be sent periodically</h3>
+            <ul>
+                <li>This app aims to helps you to keep track waybills efficiently and provides real-time updates on your shipments.</li>
+                <li>Future development includes automated notifications to both users and service providers, alerting them if a shipment is at risk or nearing a critical state. Periodic reports will also be generated.</li>
+            </ul>
         </Box>
     );
 };
