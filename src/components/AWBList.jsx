@@ -22,18 +22,17 @@ const AWBList = ({ awbList, transportMode, departurePort, deliverStatus , handle
             {filteredAwbList.length === 0 ? (
                     <h2>No AWBs found</h2>
                 ) : (
-<Box sx={{ maxHeight: `calc(120vh - 120px)`, overflowY: 'auto' }}> 
+        <Box sx={{ maxHeight: `calc(120vh - 120px)`, overflowY: 'auto' }}> 
           <h2>AWB List</h2>
           <h3>Number of Waybills: {filteredAwbList.length}</h3>
           <ul>
             {filteredAwbList.map((awb) => (
-              <li key={awb.id}>
                 <FilteredAWBList 
+                    key={awb.id}
                   awb={awb}
                   handleAddAWB={handleAddAWB}
                   updateSelected={updateSelected}
                 />
-              </li>
             ))}
           </ul>
         </Box>

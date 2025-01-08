@@ -5,6 +5,9 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+const today =new Date().toLocaleDateString();    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+console.log(today)
+
 const AWBCard = ({ selected }) => { //need to destruct and simplify if time allows
     if(!selected)
         return (
@@ -17,6 +20,12 @@ const AWBCard = ({ selected }) => { //need to destruct and simplify if time allo
                 </CardContent>
             </Card>
         )
+
+        const ARR = new Date(selected.fields["Arrive At Destination Port (ARR)"]);
+        const today = new Date();
+        const diffTime = Math.abs(today.getTime() - ARR.getTime());
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
         return (
             <Card 
                 sx={{ minWidth: 275, position: 'sticky', top: 80 }}
@@ -33,7 +42,7 @@ const AWBCard = ({ selected }) => { //need to destruct and simplify if time allo
                     <Typography variant="body2">Picked up Date: {selected.fields["Pick UP from Customer (PUP)"]}</Typography>
                     <Typography variant="body2">Depart Date: {selected.fields["Depart from Origin Port (DEP)"]}</Typography>
                     <Typography variant="body2">Destination Port Arrival Date: {selected.fields["Arrive At Destination Port (ARR)"]}</Typography>
-                    {!selected.fields["Proof Of Delivery (POD)"] ? (<Typography variant="body2">Not Delivered Yet!</Typography>) : (<Typography variant="body2">Proof of Delivery Completed Date: {selected.fields["Proof Of Delivery (POD)"]}</Typography>)}
+                    {!selected.fields["Proof Of Delivery (POD)"] ? (<Typography variant="body2" sx= {{ color: 'purple', fontWeight: 'bold'}}>Not Delivered Yet! days since ARR: {diffDays}</Typography>) : (<Typography variant="body2">Proof of Delivery Completed Date: {selected.fields["Proof Of Delivery (POD)"]}</Typography>)}
                 </CardContent>
                 <CardActions>
                     <Button 
