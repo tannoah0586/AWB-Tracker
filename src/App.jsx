@@ -9,7 +9,6 @@ import AWBCard from './components/AWBCard';
 import AWBShortlist from './components/AWBShortlist';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
-import { Pagination } from '@mui/material';
 import Box from '@mui/material/Box';
 import HomePage from './components/HomePage';
 
@@ -26,11 +25,19 @@ const App = () => {
 
   const [awbList,setAwbList] = useState([]);
   const [currentPage,setCurrentPage] = useState(1);
-  const recordsPerPage = 10;
+  const recordsPerPage = 20;
 
   const handleNextPage = ()=> {
     setCurrentPage((prevPage) => prevPage + 1)
   };
+
+  const filteredAwbList = awbList.filter(awb => {
+    return(
+        (transportMode === 'all' || awb.fields["Transport Mode"] === transportMode) &&
+        (departurePort === '' || awb.fields["Departure Port Name"] === departurePort) &&
+        (deliverStatus === 'all' || !awb.fields["Proof Of Delivery (POD)"] || awb.fields["Proof Of Delivery (POD)"] === deliverStatus)
+    );
+});
 
   const handlePreviousPage = () => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
@@ -38,7 +45,7 @@ const App = () => {
 
   const indexOfLastRecord = currentPage * recordsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
-  const currentRecords = awbList.slice(indexOfFirstRecord, indexOfLastRecord);
+  const currentRecords = filteredAwbList.slice(indexOfFirstRecord, indexOfLastRecord);
 
   const handleDeliverStatus = (status) => {
     setDeliverStatus(status);
@@ -115,6 +122,7 @@ return (
                     buttonPress = {buttonPress}
                     button2Press = {button2Press}
                     awbList={currentRecords} 
+                    filteredAwbList = {currentRecords}
                   />
                     <div>
                       {currentRecords.map((record) => (

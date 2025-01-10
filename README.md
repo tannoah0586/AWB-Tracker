@@ -16,7 +16,7 @@ This application streamlines supply chain management for engineers (users) by au
 
 # Link
 
-https://awb-tracker-fypxxlevx-tyxs-projects-d5847b3d.vercel.app
+https://awb-tracker.vercel.app/
 
 # Challenges
 
