@@ -28,4 +28,11 @@ Airtables had a default ceiling cap of 100 API items, had to spend time reading 
 
 Adding Pagination to AWBList for ease of scrolling 
 
+# references
+https://dev.to/canhamzacode/how-to-implement-pagination-with-reactjs-2b04
+https://www.educative.io/answers/how-to-implement-pagination-in-reactjs
+https://www.youtube.com/watch?v=6fOuDxcbjyg
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+https://mui.com/
+chatgpt
 

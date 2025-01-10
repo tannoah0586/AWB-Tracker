@@ -15,9 +15,9 @@ return(
     <div variant="contained" aria-label="Basic button group">
         <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 20 }}>
             Filter by Transport mode</Typography>
-            <Button onClick={() => handleTransportModeChange('Air')} sx={{ backgroundColor: buttonPress === 'Air' ? 'yellow' : 'default' }}>Air</Button>
-            <Button onClick={() => handleTransportModeChange('Ocean')} sx={{ backgroundColor: buttonPress === 'Ocean' ? 'yellow' : 'default' }}>Ocean</Button>
-            <Button onClick={() => handleTransportModeChange('all')} sx= {{ backgroundColor: buttonPress === 'all' ? 'yellow' : 'default' }}>All</Button>   
+            <Button onClick={() => handleTransportModeChange('Air')} sx={{ backgroundColor: buttonPress === 'Air' ? 'purple' : 'default' }}>Air</Button>
+            <Button onClick={() => handleTransportModeChange('Ocean')} sx={{ backgroundColor: buttonPress === 'Ocean' ? 'purple' : 'default' }}>Ocean</Button>
+            <Button onClick={() => handleTransportModeChange('all')} sx= {{ backgroundColor: buttonPress === 'all' ? 'purple' : 'default' }}>All</Button>   
         <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 20 }}>
             Filter by Risk Level</Typography>
             <Button onClick={() => handleDeliverStatus(null)} sx={{ backgroundColor: button2Press === null ? 'pink' : 'default' }}>At Risk</Button> 

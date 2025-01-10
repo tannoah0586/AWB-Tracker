@@ -1,6 +1,3 @@
-// https://dev.to/canhamzacode/how-to-implement-pagination-with-reactjs-2b04
-// https://www.educative.io/answers/how-to-implement-pagination-in-reactjs
-
 import { useState, useEffect } from 'react'
 import './App.css'
 import * as awbService from './services/awbService'

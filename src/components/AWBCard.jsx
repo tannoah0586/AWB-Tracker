@@ -5,10 +5,10 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const today =new Date().toLocaleDateString();    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+const today =new Date().toLocaleDateString();    
 console.log(today)
 
-const AWBCard = ({ selected }) => { //need to destruct and simplify if time allows
+const AWBCard = ({ selected }) => { 
     if(!selected)
         return (
             <Card 
