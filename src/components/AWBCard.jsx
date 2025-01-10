@@ -24,7 +24,7 @@ const AWBCard = ({ selected }) => { //need to destruct and simplify if time allo
         const ARR = new Date(selected.fields["Arrive At Destination Port (ARR)"]);
         const today = new Date();
         const diffTime = Math.abs(today.getTime() - ARR.getTime());
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); //returns milliseconds so need to convert to days
 
         return (
             <Card 

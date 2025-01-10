@@ -26,12 +26,12 @@ const App = () => {
 
   const [awbList,setAwbList] = useState([]);
   const [loading,setLoading] = useState(true);
-  const [currentPage,setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(15);
+  // const [currentPage,setCurrentPage] = useState(1);
+  // const [postsPerPage, setPostsPerPage] = useState(15);
 
-  const handlePagination = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  }
+  // const handlePagination = (pageNumber) => {
+  //   setCurrentPage(pageNumber);
+  // }
 
   const handleDeliverStatus = (status) => {
     setDeliverStatus(status);
@@ -59,33 +59,23 @@ const App = () => {
     setAWBshortlist(awbShortlist.filter((element) => element.id !== awb.id));
   }
 
-  // useEffect(()=>{
-  //   const fetchDefaultApiData = async () => {
-  //     try { 
-  //       const data = await awbService.show();
-  //       setAwbList(data?.records);
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   };
-  //   fetchDefaultApiData();
-  // },[]);
-  
   useEffect(() => {
     const fetchDefaultApiData = async () => {
-        try {
-            setLoading(true);
-            const data = await awbService.show();
-            setAwbList(data);
-            setLoading(false);
-        } catch (error) {
-            console.log(error);
-            setLoading(false);
+      try {
+        const data = await awbService.getallRecords();
+        console.log(data); // Log the entire data object
+        if (data && data.records) {
+          setAwbList(data.records);
+        } else {
+          console.log("Data or records are undefined");
         }
+      } catch (error) {
+        console.log(error);
+      }
     };
     fetchDefaultApiData();
-}, []);
-  
+  }, []);
+
 
 const updateSelected = (e, awb) => {
   e.preventDefault();
