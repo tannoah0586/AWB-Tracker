@@ -19,7 +19,6 @@ const App = () => {
   const [deliverStatus, setDeliverStatus] = useState('all');
   const [buttonPress, setButtonPress] = useState('');
   const [button2Press, setButton2Press] = useState('');
-
   const [awbList,setAwbList] = useState([]);
   const [currentPage,setCurrentPage] = useState(1);
   const recordsPerPage = 20;

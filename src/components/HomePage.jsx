@@ -22,7 +22,7 @@ const HomePage = () => {
             **AWB Details:** Click on an individual waybill from the list to view its detailed information, including shipment origin, destination, current status, and any other relevant details provided by the carrier.
           </li>
           <li>
-            **Shortlisted Waybills (if applicable):** If the app allows shortlisting waybills, you can add important shipments to a shortlist for easier access and monitoring.
+            **Shortlisted Waybills:** For easier access and monitoring.
           </li>
         </ul>
         <p>

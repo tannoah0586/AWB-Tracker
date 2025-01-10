@@ -1,8 +1,4 @@
 //source:
-
-
-
-
 const  getallRecords = async () => {
     const url = 'https://api.airtable.com/v0/apphE3zWlHz0yHyz5/Shipments';
     let records = [];
