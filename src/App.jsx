@@ -25,13 +25,20 @@ const App = () => {
   const [button2Press, setButton2Press] = useState('');
 
   const [awbList,setAwbList] = useState([]);
-  const [loading,setLoading] = useState(true);
-  // const [currentPage,setCurrentPage] = useState(1);
-  // const [postsPerPage, setPostsPerPage] = useState(15);
+  const [currentPage,setCurrentPage] = useState(1);
+  const recordsPerPage = 10;
 
-  // const handlePagination = (pageNumber) => {
-  //   setCurrentPage(pageNumber);
-  // }
+  const handleNextPage = ()=> {
+    setCurrentPage((prevPage) => prevPage + 1)
+  };
+
+  const handlePreviousPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
+
+  const indexOfLastRecord = currentPage * recordsPerPage;
+  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+  const currentRecords = awbList.slice(indexOfFirstRecord, indexOfLastRecord);
 
   const handleDeliverStatus = (status) => {
     setDeliverStatus(status);
@@ -96,7 +103,7 @@ return (
               <div className="awb-container">
                   <AWBList 
                     className="awb-list" 
-                    awbList={awbList} 
+                    // awbList={awbList} 
                     updateSelected={updateSelected} 
                     handleAddAWB={handleAddAWB} 
                     handleTransportModeChange = { handleTransportModeChange } 
@@ -107,12 +114,19 @@ return (
                     handleDeliverStatus = { handleDeliverStatus }
                     buttonPress = {buttonPress}
                     button2Press = {button2Press}
+                    awbList={currentRecords} 
                   />
-                  {/* <Pagination 
-                    length = {awbList.length}
-                    postsPerPage = {postsPerPage}
-                    handlePagination = {handlePagination}
-                  /> */}
+                    <div>
+                      {currentRecords.map((record) => (
+                        <div key={record.id}>{record.name}</div>
+                      ))}
+                      <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+                        Previous
+                      </button>
+                      <button onClick={handleNextPage} disabled={indexOfLastRecord >= awbList.length}>
+                        Next
+                      </button>
+                    </div>
                   <AWBCard 
                     className="awb-card"
                     selected={selected} />

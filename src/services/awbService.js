@@ -6,12 +6,12 @@
 const  getallRecords = async () => {
     const url = 'https://api.airtable.com/v0/apphE3zWlHz0yHyz5/Shipments';
     let records = [];
-    const initial_response = await show(url);
+    const initial_response = await show(url, undefined, 10);
     records.push(initial_response.records);
     let offset = initial_response.offset;
     if (offset !== undefined) {
         do {
-            const response = await show(url,offset)
+            const response = await show(url,offset,10);
             records.push(response.records)
             offset = response.offset
         } while (offset !== undefined)
@@ -21,7 +21,7 @@ const  getallRecords = async () => {
     console.log(`records count: ${records.length}`);    
 }
 
-const show = async (url,offset) => {
+const show = async (url,offset,pageSize = 10) => {
     try {
         const apiKey = import.meta.env.VITE_API_TOKEN;
         if (offset !==undefined) {
