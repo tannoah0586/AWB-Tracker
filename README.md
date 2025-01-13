@@ -36,3 +36,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://mui.com/
 chatgpt
 
+# Snapshots
+
+![Homepage with instructions](image.png)
+
+![AWBList with at risk and mode filtering option](image-1.png)
+
+![AWBList page with filtering option for origin option](image-2.png)
+
+![AWB Details with the calculated number of days since last timestamp](image-4.png)
+
+![AWB Shortlist page with future development button at footer](image-3.png)
