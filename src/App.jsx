@@ -119,7 +119,6 @@ return (
                     buttonPress = {buttonPress}
                     button2Press = {button2Press}
                     awbList={currentRecords} 
-                    filteredAwbList = {currentRecords}
                   />
                     <div>
                       {currentRecords.map((record) => (
